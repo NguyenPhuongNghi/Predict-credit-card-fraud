@@ -92,7 +92,7 @@ category_columns = data.select_dtypes(include=['object', 'category']).columns
 
 # Print unique values of each column
 for col in category_columns:
-    unique_count = data[col].nunique(dropna=False)  # tính cả NaN nếu có
+    unique_count = data[col].nunique(dropna=False)  # including nan
     print(f" Column '{col}': {unique_count} unique values")
 ```
 ➡️ **Output:**
@@ -220,7 +220,7 @@ for name, pipeline in pipelines.items():
 from xgboost import XGBClassifier
 from sklearn.model_selection import RandomizedSearchCV
 
-# Tập tham số
+# Parameters
 param_grid_xgb = {
     'model__n_estimators': [100, 300, 500],
     'model__max_depth': [3, 5, 7, 10],
